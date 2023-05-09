@@ -192,6 +192,11 @@ div.csl-indent {
   <a href="../artificial-neuron/modern-artificial-neuron.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The modern artificial neuron</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../artificial-neuron/activation-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activation functions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -204,7 +209,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../machine-learning/machine-learning-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The machine learning setup</span></a>
+  <a href="../machine-learning/machine-learning-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The machine learning setup</span></a>
   </div>
 </li>
       </ul>
@@ -219,12 +224,12 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mathematics/boolean-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Boolean Logic</span></a>
+  <a href="../mathematics/boolean-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Boolean Logic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mathematics/prerequisite-topology.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Prerequisite Topology</span></a>
+  <a href="../mathematics/prerequisite-topology.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prerequisite Topology</span></a>
   </div>
 </li>
       </ul>
@@ -239,7 +244,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pytorch-experiments/indexing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">indexing.html</span></a>
+  <a href="../pytorch-experiments/indexing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">indexing.html</span></a>
   </div>
 </li>
       </ul>
@@ -291,7 +296,7 @@ div.csl-indent {
 <p>The McCulloch-Pitts (MP) neuron is a formal model attempting to imitate select behaviour of the biological neuron: excitatory and inhibitory inputs, thresholding behaviour, a single excitatory state, … <span class="citation" data-cites="mculloch-pitts-1943">(<a href="../references.html#ref-mculloch-pitts-1943" role="doc-biblioref">McCulloch and Pitts 1943</a>)</span>. It is a binary classifier.</p>
 <section id="a-basic-mathematical-formulation" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="a-basic-mathematical-formulation"><span class="header-section-number">1.1</span> A basic mathematical formulation</h2>
-<p>Let <span class="math inline">\(f_{\theta, N}\)</span> be a boolean function (<a href="../mathematics/boolean-logic.html#sec-boolean_function"><span>Section&nbsp;6.1</span></a>) where <span class="math inline">\(\theta\)</span> is a non-negative real constant called the <strong>threshold</strong> and <span class="math inline">\(N\)</span> is the set of indices (of the input binary tuple) corresponding to <strong>inhibitory inputs</strong>. We define <span class="math inline">\(f_{\theta, N}\)</span> in the following manner, <span class="math display">\[
+<p>Let <span class="math inline">\(f_{\theta, N}\)</span> be a boolean function (<a href="../mathematics/boolean-logic.html#sec-boolean_function"><span>Section&nbsp;7.1</span></a>) where <span class="math inline">\(\theta\)</span> is a non-negative real constant called the <strong>threshold</strong> and <span class="math inline">\(N\)</span> is the set of indices (of the input binary tuple) corresponding to <strong>inhibitory inputs</strong>. We define <span class="math inline">\(f_{\theta, N}\)</span> in the following manner, <span class="math display">\[
 f_{\theta, N}(\textbf{x}) =
 \begin{cases}
 1 \text{ if } \sum\limits_{i = 1}^n x_i \geq \theta \text { and } x_i = 0 \;\forall\; i \in N \\

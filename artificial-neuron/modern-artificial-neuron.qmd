@@ -1,6 +1,24 @@
 # The modern artificial neuron
-Unlike the previous models the modern artificial neurons abstracts away from the previous concrete models into a general template whose parts can be swapped in-and-out on the basis of necessity. We discuss the general template as well as some specific manifestations of the archetype.
+The modern artificial neuron is a specification/framework on top of which other special concrete implementations of ANs can be built. It is not a bad idea to think of the framework as a pipeline. We now discuss each part of the pipeline in detail.
 
-informative article check: https://machinelearningknowledge.ai/artificial-neuron/
+## The anatomy of an artificial neuron
+Each artificial neuron has the following pieces of information associated with it
+    1. Accepted input format
+    2. Input concatenation
+    3. Activation
+
+We now discuss each one of these parts.
+
+### Accepted input format
+An artificial neural network cannot accept any input given to it. It can only accept certain types of input and this is specified in each implementation.
+
+### Input concatenation
+After the artificial neuron receives an input vector, it usually concatenates into a single scaler value via some mechanism. Generally, this mechanism is a simple weighted sum of the components of the input vector along with an additional term called the bias. 
+
+### Activation
+After obtaining this scaler, the AN passes it through an activation function that establishes a bound on it. Once again the type of activation function an the bound depend on the implementation. Different types of activation functions and their use cases are presented in @sec-activation_functions.
+
+### Resources used
+1. https://machinelearningknowledge.ai/artificial-neuron/
 
 

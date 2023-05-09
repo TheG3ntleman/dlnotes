@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Deep Learning Notes - 5&nbsp; The machine learning setup</title>
+<title>Deep Learning Notes - 6&nbsp; The machine learning setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,7 +58,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The machine learning setup</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The machine learning setup</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -109,6 +109,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="../artificial-neuron/modern-artificial-neuron.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The modern artificial neuron</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../artificial-neuron/activation-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activation functions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -121,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../machine-learning/machine-learning-setup.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The machine learning setup</span></a>
+  <a href="../machine-learning/machine-learning-setup.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The machine learning setup</span></a>
   </div>
 </li>
       </ul>
@@ -136,12 +141,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mathematics/boolean-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Boolean Logic</span></a>
+  <a href="../mathematics/boolean-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Boolean Logic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mathematics/prerequisite-topology.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Prerequisite Topology</span></a>
+  <a href="../mathematics/prerequisite-topology.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prerequisite Topology</span></a>
   </div>
 </li>
       </ul>
@@ -156,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pytorch-experiments/indexing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">indexing.html</span></a>
+  <a href="../pytorch-experiments/indexing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">indexing.html</span></a>
   </div>
 </li>
       </ul>
@@ -175,11 +180,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-data" id="toc-the-data" class="nav-link active" data-scroll-target="#the-data"><span class="toc-section-number">5.0.1</span>  The data</a></li>
-  <li><a href="#the-model" id="toc-the-model" class="nav-link" data-scroll-target="#the-model"><span class="toc-section-number">5.0.2</span>  The model</a></li>
-  <li><a href="#the-loss-functions" id="toc-the-loss-functions" class="nav-link" data-scroll-target="#the-loss-functions"><span class="toc-section-number">5.0.3</span>  The loss functions</a></li>
-  <li><a href="#the-learning-mechanism" id="toc-the-learning-mechanism" class="nav-link" data-scroll-target="#the-learning-mechanism"><span class="toc-section-number">5.0.4</span>  The learning mechanism</a></li>
-  <li><a href="#a-discussion-on-model-convergence" id="toc-a-discussion-on-model-convergence" class="nav-link" data-scroll-target="#a-discussion-on-model-convergence"><span class="toc-section-number">5.1</span>  A Discussion on model convergence</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link active" data-scroll-target="#the-data"><span class="toc-section-number">6.0.1</span>  The data</a></li>
+  <li><a href="#the-model" id="toc-the-model" class="nav-link" data-scroll-target="#the-model"><span class="toc-section-number">6.0.2</span>  The model</a></li>
+  <li><a href="#the-loss-functions" id="toc-the-loss-functions" class="nav-link" data-scroll-target="#the-loss-functions"><span class="toc-section-number">6.0.3</span>  The loss functions</a></li>
+  <li><a href="#the-learning-mechanism" id="toc-the-learning-mechanism" class="nav-link" data-scroll-target="#the-learning-mechanism"><span class="toc-section-number">6.0.4</span>  The learning mechanism</a></li>
+  <li><a href="#a-discussion-on-model-convergence" id="toc-a-discussion-on-model-convergence" class="nav-link" data-scroll-target="#a-discussion-on-model-convergence"><span class="toc-section-number">6.1</span>  A Discussion on model convergence</a></li>
   </ul>
 </nav>
     </div>
@@ -188,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The machine learning setup</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The machine learning setup</span></h1>
 </div>
 
 
@@ -204,25 +209,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>The machine learning setup is a framwork that allows us to analyze machine learning problems in a structured way. Every machine learning problem constitutes of: 1. The underlying data 2. A suitable parametric model 3. A loss/objective/error functions 4. A learning mechanism by which the loss function is minimized.</p>
-<section id="the-data" class="level3" data-number="5.0.1">
-<h3 data-number="5.0.1" class="anchored" data-anchor-id="the-data"><span class="header-section-number">5.0.1</span> The data</h3>
+<section id="the-data" class="level3" data-number="6.0.1">
+<h3 data-number="6.0.1" class="anchored" data-anchor-id="the-data"><span class="header-section-number">6.0.1</span> The data</h3>
 <p>A solution to any machine learning problems starts by looking at the data involved.</p>
 <p>write seperate sections about: data augmentation, data cleaning/pre-processing, …</p>
 </section>
-<section id="the-model" class="level3" data-number="5.0.2">
-<h3 data-number="5.0.2" class="anchored" data-anchor-id="the-model"><span class="header-section-number">5.0.2</span> The model</h3>
+<section id="the-model" class="level3" data-number="6.0.2">
+<h3 data-number="6.0.2" class="anchored" data-anchor-id="the-model"><span class="header-section-number">6.0.2</span> The model</h3>
 <p>Every machine learning model is based of a real-world phenomenon. Therefore, it seems that there exists some mysterious function that governs that particular phenomenon, even through the function itself is not apparant. Using machine learning models we try to fit this function by observing it behaviour through the data. A model suitable to the type of data greatly simplifies the problem and leads to better results.</p>
 </section>
-<section id="the-loss-functions" class="level3" data-number="5.0.3">
-<h3 data-number="5.0.3" class="anchored" data-anchor-id="the-loss-functions"><span class="header-section-number">5.0.3</span> The loss functions</h3>
+<section id="the-loss-functions" class="level3" data-number="6.0.3">
+<h3 data-number="6.0.3" class="anchored" data-anchor-id="the-loss-functions"><span class="header-section-number">6.0.3</span> The loss functions</h3>
 <p>We must a mechanism by which we can gauge the performance of the model. This is done with the help of a loss function. As above, depending on the problem a poor selection for the loss function will lead to problems.</p>
 </section>
-<section id="the-learning-mechanism" class="level3" data-number="5.0.4">
-<h3 data-number="5.0.4" class="anchored" data-anchor-id="the-learning-mechanism"><span class="header-section-number">5.0.4</span> The learning mechanism</h3>
+<section id="the-learning-mechanism" class="level3" data-number="6.0.4">
+<h3 data-number="6.0.4" class="anchored" data-anchor-id="the-learning-mechanism"><span class="header-section-number">6.0.4</span> The learning mechanism</h3>
 <p>A mechanism by which we can adjust the parameters of the model to minimize the loss function is necessary to fit our model to the ideal function.</p>
 </section>
-<section id="a-discussion-on-model-convergence" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="a-discussion-on-model-convergence"><span class="header-section-number">5.1</span> A Discussion on model convergence</h2>
+<section id="a-discussion-on-model-convergence" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="a-discussion-on-model-convergence"><span class="header-section-number">6.1</span> A Discussion on model convergence</h2>
 <p>The precise definition of convergence of a model varies depending on the context. However, in general we say that a model has converged if we have roughly reached a set of parameters at which the loss function has a minima. It is not necessary that the minimum loss is 0, it is a luxury.</p>
 
 

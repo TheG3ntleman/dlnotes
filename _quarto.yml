@@ -19,6 +19,7 @@ book:
       - artificial-neuron/perceptron.qmd
       - artificial-neuron/sigmoid-neuron.qmd
       - artificial-neuron/modern-artificial-neuron.qmd
+      - artificial-neuron/activation-functions.qmd
   - part: machine-learning/machine-learning.qmd
     chapters:
       - machine-learning/machine-learning-setup.qmd

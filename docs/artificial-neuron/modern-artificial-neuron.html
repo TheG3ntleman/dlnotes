@@ -109,6 +109,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="../artificial-neuron/modern-artificial-neuron.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The modern artificial neuron</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../artificial-neuron/activation-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Activation functions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -121,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../machine-learning/machine-learning-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The machine learning setup</span></a>
+  <a href="../machine-learning/machine-learning-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The machine learning setup</span></a>
   </div>
 </li>
       </ul>
@@ -136,12 +141,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mathematics/boolean-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Boolean Logic</span></a>
+  <a href="../mathematics/boolean-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Boolean Logic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mathematics/prerequisite-topology.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Prerequisite Topology</span></a>
+  <a href="../mathematics/prerequisite-topology.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Prerequisite Topology</span></a>
   </div>
 </li>
       </ul>
@@ -156,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pytorch-experiments/indexing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">indexing.html</span></a>
+  <a href="../pytorch-experiments/indexing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">indexing.html</span></a>
   </div>
 </li>
       </ul>
@@ -171,7 +176,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-anatomy-of-an-artificial-neuron" id="toc-the-anatomy-of-an-artificial-neuron" class="nav-link active" data-scroll-target="#the-anatomy-of-an-artificial-neuron"><span class="toc-section-number">4.1</span>  The anatomy of an artificial neuron</a>
+  <ul class="collapse">
+  <li><a href="#accepted-input-format" id="toc-accepted-input-format" class="nav-link" data-scroll-target="#accepted-input-format"><span class="toc-section-number">4.1.1</span>  Accepted input format</a></li>
+  <li><a href="#input-concatenation" id="toc-input-concatenation" class="nav-link" data-scroll-target="#input-concatenation"><span class="toc-section-number">4.1.2</span>  Input concatenation</a></li>
+  <li><a href="#activation" id="toc-activation" class="nav-link" data-scroll-target="#activation"><span class="toc-section-number">4.1.3</span>  Activation</a></li>
+  <li><a href="#resources-used" id="toc-resources-used" class="nav-link" data-scroll-target="#resources-used"><span class="toc-section-number">4.1.4</span>  Resources used</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -193,10 +210,32 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Unlike the previous models the modern artificial neurons abstracts away from the previous concrete models into a general template whose parts can be swapped in-and-out on the basis of necessity. We discuss the general template as well as some specific manifestations of the archetype.</p>
-<p>informative article check: https://machinelearningknowledge.ai/artificial-neuron/</p>
+<p>The modern artificial neuron is a specification/framework on top of which other special concrete implementations of ANs can be built. It is not a bad idea to think of the framework as a pipeline. We now discuss each part of the pipeline in detail.</p>
+<section id="the-anatomy-of-an-artificial-neuron" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="the-anatomy-of-an-artificial-neuron"><span class="header-section-number">4.1</span> The anatomy of an artificial neuron</h2>
+<p>Each artificial neuron has the following pieces of information associated with it 1. Accepted input format 2. Input concatenation 3. Activation</p>
+<p>We now discuss each one of these parts.</p>
+<section id="accepted-input-format" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="accepted-input-format"><span class="header-section-number">4.1.1</span> Accepted input format</h3>
+<p>An artificial neural network cannot accept any input given to it. It can only accept certain types of input and this is specified in each implementation.</p>
+</section>
+<section id="input-concatenation" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="input-concatenation"><span class="header-section-number">4.1.2</span> Input concatenation</h3>
+<p>After the artificial neuron receives an input vector, it usually concatenates into a single scaler value via some mechanism. Generally, this mechanism is a simple weighted sum of the components of the input vector along with an additional term called the bias.</p>
+</section>
+<section id="activation" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="activation"><span class="header-section-number">4.1.3</span> Activation</h3>
+<p>After obtaining this scaler, the AN passes it through an activation function that establishes a bound on it. Once again the type of activation function an the bound depend on the implementation. Different types of activation functions and their use cases are presented in <a href="activation-functions.html"><span>Chapter&nbsp;5</span></a>.</p>
+</section>
+<section id="resources-used" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="resources-used"><span class="header-section-number">4.1.4</span> Resources used</h3>
+<ol type="1">
+<li>https://machinelearningknowledge.ai/artificial-neuron/</li>
+</ol>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
