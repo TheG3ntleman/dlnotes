@@ -1,6 +1,29 @@
 project:
-  title: "src"
+  type: book
   output-dir: "../docs"
+
+book:
+  title: "Deep Learning Book"
+  author: "Abhirath Sangala"
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - part: Graph Neural Networks
+      chatpers:
+        - graph-neural-networks/mpnn/mpnn.qmd
+    #- part: Notes related to implementation
+    #  chapters:
+    #    - graph-neural-networks/pytorch-geometric-tutorials/pytorch-geometric.ipynb
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreport
+  epub: 
+    cover-image: cover.png
+  
 
 
 

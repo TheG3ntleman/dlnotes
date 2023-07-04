@@ -1,0 +1,7 @@
+---
+title: Pytorch Geometric
+---
+
+# Applying classical deep learning techniques to graph based data
+Every graph can be represented as an adjacency matrix and there already exist a wide variety of architectures in deep learning which act primarily on matrices primarily those related to image processing. However, passing the adjacency matrix of a graph as input to a deep neural network is a bad idea for a variety of reasons:
+- 

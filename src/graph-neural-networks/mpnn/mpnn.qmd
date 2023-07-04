@@ -1,0 +1,8 @@
+---
+title: "Message Passing Neural Networks (MPNNs)"
+---
+
+## Origin
+The rapid determination of molecular properties is of principal interest in the field of drug discovery. The speed of the entire process is dependent on how quickly someone can determine the properties of a prototype molecule. Over the years, many supervised learning techniques have been developed and discussed for this purpose. Naturally, the congruities of these techniques were identified and a general framework, *the message passing neural network*, was proposed.
+
+
