@@ -10,10 +10,14 @@ book:
     - index.qmd
     - part: Graph Neural Networks
       chatpers:
-        - graph-neural-networks/mpnn/mpnn.qmd
-    #- part: Notes related to implementation
-    #  chapters:
-    #    - graph-neural-networks/pytorch-geometric-tutorials/pytorch-geometric.ipynb
+        - gnn-mpnn.qmd
+    - part: Notes related to implementation
+      chapters:
+        - pytorch-geometric.qmd
+        - tutorial-1.ipynb
+        - tutorial-2.ipynb
+        - tutorial-3.ipynb
+
 bibliography: references.bib
 
 format:
