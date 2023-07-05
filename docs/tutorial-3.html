@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Abhirath Sangala">
 
-<title>Deep Learning Book</title>
+<title>Deep Learning Book - 5&nbsp; Graph Attention Networks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./pytorch-geometric.html" rel="next">
+<link href="./tutorial-2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -62,10 +61,12 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -74,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pytorch-geometric.html">Notes related to implementation</a></li><li class="breadcrumb-item"><a href="./tutorial-3.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Graph  Attention Networks</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -101,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome</span></span></a>
   </div>
 </li>
@@ -138,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial-3.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial-3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Graph Attention Networks</span></span></a>
   </div>
 </li>
@@ -149,25 +150,35 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#graph-attention-layer" id="toc-graph-attention-layer" class="nav-link active" data-scroll-target="#graph-attention-layer"><span class="header-section-number">6</span> Graph Attention Layer</a>
+  <ul class="collapse">
+  <li><a href="#inputs-and-outputs" id="toc-inputs-and-outputs" class="nav-link" data-scroll-target="#inputs-and-outputs"><span class="header-section-number">6.1</span> Inputs and outputs</a></li>
+  <li><a href="#internal-computations-of-the-graph-attention-layer" id="toc-internal-computations-of-the-graph-attention-layer" class="nav-link" data-scroll-target="#internal-computations-of-the-graph-attention-layer"><span class="header-section-number">6.2</span> Internal computations of the graph attention layer</a></li>
+  </ul></li>
+  <li><a href="#pros-of-gats" id="toc-pros-of-gats" class="nav-link" data-scroll-target="#pros-of-gats"><span class="header-section-number">7</span> Pros of GATs</a></li>
+  <li><a href="#message-passing-implementation-of-gat" id="toc-message-passing-implementation-of-gat" class="nav-link" data-scroll-target="#message-passing-implementation-of-gat"><span class="header-section-number">8</span> Message passing implementation of GAT</a></li>
+  <li><a href="#a-plan-to-implement-a-gat-with-pytorch-geometric" id="toc-a-plan-to-implement-a-gat-with-pytorch-geometric" class="nav-link" data-scroll-target="#a-plan-to-implement-a-gat-with-pytorch-geometric"><span class="header-section-number">9</span> A plan to implement a GAT with Pytorch-geometric</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">10</span> References</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Deep Learning Book</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Graph Attention Networks</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Abhirath Sangala </p>
-          </div>
-  </div>
     
   
     
@@ -176,9 +187,72 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>A collection of notes related to deep learning.</p>
+<p>The Graph Attention Network, or GAT, is a graph neural network which addresses the following questions: 1. Of what importance are the features of a neighbouring node to the primary node? 2. Can we learn this importance, in an automatic manner?</p>
+<p>First we discuss the inputs and outputs of the graph attention Layer</p>
+<section id="graph-attention-layer" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Graph Attention Layer</h1>
+<section id="inputs-and-outputs" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="inputs-and-outputs"><span class="header-section-number">6.1</span> Inputs and outputs</h2>
+<p><strong>INPUT:</strong> a set of node features <span class="math inline">\(h=\{\bar h_1, \bar h_2, \cdots, \bar h_n\}, \bar h_i\in \mathbb{R}^F\)</span></p>
+<p><strong>OUTPUT:</strong> a set of node features <span class="math inline">\(h'=\{\bar h'_1, \bar h'_2, \cdots, \bar h'_n\}, \bar h'_i\in \mathbb{R}^{F'}\)</span></p>
+</section>
+<section id="internal-computations-of-the-graph-attention-layer" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="internal-computations-of-the-graph-attention-layer"><span class="header-section-number">6.2</span> Internal computations of the graph attention layer</h2>
+<ol type="1">
+<li><p>Apply a parameterized linear transformation to every node. <span class="math display">\[\textbf{w}.\bar h_i, \textbf{w}\in\mathbb{R}^{F'\times F}\]</span></p></li>
+<li><p>Apply a self attention mechanism, <span class="math inline">\(a\)</span>, described as <span class="math display">\[
+\begin{gather}
+a:\mathbb{R}^{F'}\times \mathbb{R}^{F'}\to\mathbb{R} \\
+e_{i, j} = a(\textbf{w}\cdot\bar h_i, \textbf{w}\cdot\bar h_j)
+\end{gather}\]</span> The coeffecient <span class="math inline">\(e_{i, j}\)</span> specify the importance of node <span class="math inline">\(j\)</span>’s feature to node <span class="math inline">\(i\)</span>. where <span class="math inline">\(a\)</span> is a single-layer feed forward neural network</p></li>
+<li><p>Normalize with respect all neighbors <span class="math display">\[\alpha_{i, j} = \text{softmax}_j(e_{i, j}) = \frac{exp{e_{i, j}}}{\sum\limits_{k\in N(i)} exp(e_{i, k})}\]</span></p></li>
+<li><p>Use <span class="math inline">\(\alpha\)</span> in message passing <span class="math display">\[h'_i = \sigma\bigg(\sum\limits_{j\in N(i)} \alpha_{i, j} \textbf{w}\cdot h_j\bigg)\]</span> In practice however we use multi-headed attention which involves calculating multiple overlapping values of <span class="math inline">\(\alpha\)</span> and using that in the formula instead. In Veliˇckovi´’s paper it is suggested to use concatenation in the inner layers of the network and an averaging mechanism for the final layer. These are expresed respectively in the following formulas: <span class="math display">\[
+\begin{gather}
+h'_i = \bigg|\bigg|_{k=1}^K \sigma\bigg(\sum\limits_{j\in N(i)}\alpha_{i, j}^k\textbf{w}^k h_j\bigg) \\
+h'_i = \sigma \bigg( \frac{1}{K}\sum\limits_{k=1}^K\sum\limits_{j\in N(i)} \alpha_{i, j}^k\textbf{w}^k h_j\bigg)
+\end{gather}
+\]</span></p></li>
+</ol>
+</section>
+</section>
+<section id="pros-of-gats" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Pros of GATs</h1>
+<ol type="1">
+<li>GATs are computationally effecient:
+<ul>
+<li>Self-attention layers can be parallelized across edges</li>
+<li>Output features can eb parallelized across nodes</li>
+</ul></li>
+<li>Allows us to assign different importances to nodes of a same neighborhood.</li>
+<li>It is applied in a shared manner to all edges in the graph.
+<ul>
+<li>Not required to have the entire graph before hand</li>
+</ul></li>
+<li>Works on both
+<ul>
+<li>Transductive learning (Cora, Citeseer, Pubmed)</li>
+<li>Inductive learning (PPI)</li>
+</ul></li>
+<li>Addresses problems of the naive approach to dealing with graphs by processing adjacency matrices. (all GNNs share this benefit).</li>
+</ol>
+</section>
+<section id="message-passing-implementation-of-gat" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Message passing implementation of GAT</h1>
+<p>Message passing network framework as a single formula:</p>
+<p><span class="math display">\[x_i^{(k)} = \gamma^{(k)}\bigg(\textbf{x}_i^{(k-1)}, \sum\limits_{j\in N(i)}\phi^{(k)}\bigg(\textbf{x}_i^{(k-1)}, \textbf{x}_j^{(k-1)}, e_{j, 1}\bigg)\bigg)\]</span> where, - <span class="math inline">\(x_i^{(k)}\)</span> is the feature representation of node <span class="math inline">\(i\)</span> at the k-th layer of the computation graph. - <span class="math inline">\(\gamma^{(k)}\)</span> is a differentiable and trainable function - <span class="math inline">\(\sum\)</span> is a permutation invariant aggregation scheme - <span class="math inline">\(\bigg( , \bigg)\)</span> is concatenation - <span class="math inline">\(\phi^{(k)}\)</span> is a differentiable and trainable function}</p>
+</section>
+<section id="a-plan-to-implement-a-gat-with-pytorch-geometric" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> A plan to implement a GAT with Pytorch-geometric</h1>
+<p>Pytorch Geometric comes with an in-built message passing base class. To implement a GAT-based network we must only supply it with a <em>message</em> function, an <em>update</em> function, and the <em>aggregation</em> scheme. <img src="tutorial-3_files/figure-html/ddef5e11-1-image.png" class="img-fluid" alt="image.png"></p>
+</section>
+<section id="references" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> References</h1>
+<ol type="1">
+<li><a href="https://arxiv.org/pdf/1710.10903.pdf">Graph Attention Networks</a></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -416,11 +490,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./tutorial-2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">stuff covered</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./pytorch-geometric.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pytorch Geometric</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
